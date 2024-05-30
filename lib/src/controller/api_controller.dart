@@ -42,7 +42,6 @@ class ApiController extends GetxController {
           return;
         } else {
           loading.value = false;
-          print("parts == #]$text");
           parts.add(TextPart(text));
           if ((history.length - 1) == historyIndex) {
             history.removeAt(historyIndex);
@@ -50,9 +49,7 @@ class ApiController extends GetxController {
           history.insert(historyIndex, Content('model', parts));
         }
       }
-    } catch (e, t) {
-      print("E === $e");
-      print("t === $t");
+    } catch (e) {
       _showError(e.toString(),Get.context);
       loading.value = false;
 
